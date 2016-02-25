@@ -6,6 +6,8 @@
 		    <link href="/static/css/style.css" rel="stylesheet">
     </head>
     <body>
+  {% block css %}{% endblock %}
+
 	{% block menu %}
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 		  <div class="container">
@@ -44,5 +46,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/static/js/bootstrap.min.js"></script>
 	footer
+
+    {% block js %}{% endblock %}
     </body>
 </html
