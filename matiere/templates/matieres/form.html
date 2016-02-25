@@ -1,7 +1,7 @@
 {% extends '_layouts/base.html' %}
 
 {% block content %}
-<h1>Editez un sondage</h1>
+<h1>Ajoutez/Editez une matiere</h1>
 
 <form class="form-horizontal" action="" method="post">
   {% for field in form %}
@@ -14,7 +14,7 @@
   </div>
   {% endfor %}
   {% csrf_token %}
-  <input type="submit" name="add_sondage"
+  <input type="submit" name="add_matiere"
          class="col-sm-offset-2 btn btn-success" value="Enregistrer">
 </form>
 

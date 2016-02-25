@@ -33,7 +33,8 @@ ALLOWED_HOSTS = []
 
 LOCAL_APPS = [
     'accounts',
-    'sondage',
+    'matiere',
+    'plan',
 ]
 
 THIRD_PARTY_APPS = []
@@ -65,7 +66,7 @@ ROOT_URLCONF = 'formation.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['./templates'],
+        'DIRS': ['./templates', './plan/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

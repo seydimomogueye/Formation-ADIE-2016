@@ -2,7 +2,7 @@
 from django import forms
 
 from . import models
-from accounts import models as account_mdl
+#from accounts import models as account_mdl
 
 
 # class SondageForm(forms.Form):
@@ -15,11 +15,16 @@ from accounts import models as account_mdl
 #     def save(self):
 #         return "J'ai sauvegardé"
 
-class SondageForm(forms.ModelForm):
+class PlanForm(forms.ModelForm):
     class Meta:
-        model = models.Sondage
+        model = models.Plan
         fields = '__all__'
         widgets = {
-            'avis': forms.TextInput(attrs={'class': 'form-control'}),
             'account': forms.Select(attrs={'class': 'form-control'}),
+            'matiere': forms.Select(attrs={'class': 'form-control'}),
+            'jour_type': forms.Select(attrs={'class': 'form-control'}),
+            'debut': forms.NumberInput(attrs={'class': 'form-control'}),
+            'fin': forms.NumberInput(attrs={'class': 'form-control'}),
+        
+        
         }

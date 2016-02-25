@@ -2,33 +2,33 @@
 
 {% block content %}
 
-<h1>Mes sondages</h1>
+<h1>Mes matieres</h1>
 
-<a href="{% url 'sondage.views.sondage_add' %}"
-   class="btn btn-primary btn-sm">Nouveau sondage</a>
+<a href="{% url 'matiere.views.matiere_add' %}"
+   class="btn btn-primary btn-sm">Nouvelle matiere</a>
 
 <table class="table">
   <thead>
     <tr>
       <th>#</th>
-      <th>Account</th>
-      <th>Avis</th>
+      <th>Intitule</th>
+      <th>Description</th>
       <th>A</th>
       <th>Opérations</th>
     </tr>
   </thead>
 
   <tbody>
-    {% for s in sondages %}
+    {% for s in matiere %}
     <tr>
       <td>{{ s.id }}</td>
-      <td>{{ s.account }}</td>
-      <td>{{ s.avis }}</td>
+      <td>{{ s.titre }}</td>
+      <td>{{ s.description }}</td>
       <td>{{ s.created_at|date:"d M, Y à H:i" }}</td>
-      <td>
-        <a href="{% url 'sondage_edit' pk=s.id %}"
+      <td width="30%">
+        <a href="{% url 'matiere_edit' pk=s.id %}"
            class="btn btn-sm btn-success">Modifier</a>
-         <a href="{% url 'sondage_delete' pk=s.id %}"
+         <a href="{% url 'matiere_delete' pk=s.id %}"
             class="btn btn-sm btn-danger">Supprimer</a>
       </td>
     </tr>
