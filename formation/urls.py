@@ -22,6 +22,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^formations/(?P<nom>\w+)/', views.formation),
     url(r'^formations/', views.formation),
-    url(r'^sondages/', include('sondage.urls')),
-    url(r'^', 'sondage.views.sondage_list')
+    url(r'^matieres/', include('matiere.urls')),
+    url(r'^modules/', 'matiere.views.matiere_list'),
+    url(r'^plans/', include('plan.urls')),
+    url(r'^', 'plan.views.plan_list')
 ]

@@ -1,0 +1,39 @@
+{% extends '_layouts/base.html' %}
+
+{% block content %}
+
+<h1>Mes matieres</h1>
+
+<a href="{% url 'matiere.views.matiere_add' %}"
+   class="btn btn-primary btn-sm">Nouvelle matiere</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Intitule</th>
+      <th>Description</th>
+      <th>A</th>
+      <th>Opérations</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for s in matiere %}
+    <tr>
+      <td>{{ s.id }}</td>
+      <td>{{ s.titre }}</td>
+      <td>{{ s.description }}</td>
+      <td>{{ s.created_at|date:"d M, Y à H:i" }}</td>
+      <td width="30%">
+        <a href="{% url 'matiere_edit' pk=s.id %}"
+           class="btn btn-sm btn-success">Modifier</a>
+         <a href="{% url 'matiere_delete' pk=s.id %}"
+            class="btn btn-sm btn-danger">Supprimer</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

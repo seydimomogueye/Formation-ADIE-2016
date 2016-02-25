@@ -1,0 +1,43 @@
+{% extends '_layouts/base.html' %}
+
+{% block content %}
+
+<h1>Le programme</h1>
+
+<a href="{% url 'plan.views.plan_add' %}"
+   class="btn btn-primary btn-sm">Nouvelle planification</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Intitule</th>
+      <th>Description</th>
+      <th>jour</th>
+      <th>horaire</th>
+      <th>A</th>
+      <th>Opérations</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for s in plan %}
+    <tr>
+      <td>{{ s.id }}</td>
+      <td>{{ s.matiere.titre }}</td>
+      <td>{{ s.matiere.description }}</td>
+      <td>{{ s.jour }}</td>
+      <td>De {{ s.debut }}h a {{ s.fin }}h </td>
+      <td>{{ s.created_at|date:"d M, Y à H:i" }}</td>
+      <td width="30%">
+        <a href="{% url 'plan_edit' pk=s.id %}"
+           class="btn btn-sm btn-success">Modifier</a>
+         <a href="{% url 'plan_delete' pk=s.id %}"
+            class="btn btn-sm btn-danger">Supprimer</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
