@@ -1,0 +1,23 @@
+{% extends '_layouts/base.html' %}
+
+<h1>Home</h1>
+
+<div>
+	{% block content %}
+		Formation: {{ nom }} à {{ heure }}
+		<hr>
+		<ol>
+		{% for p in participants %}
+			<li>
+				{% if p.user.last_name %}
+				{{ p.user.last_name }}
+				{% else %}
+				({{ p.user.username }})
+				{% endif %}
+			</li>
+		{% endfor %}
+		</ol>
+	{% endblock%}
+</div>
+
+

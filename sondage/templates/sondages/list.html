@@ -1,0 +1,39 @@
+{% extends '_layouts/base.html' %}
+
+{% block content %}
+
+<h1>Mes sondages</h1>
+
+<a href="{% url 'sondage.views.sondage_add' %}"
+   class="btn btn-primary btn-sm">Nouveau sondage</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Account</th>
+      <th>Avis</th>
+      <th>A</th>
+      <th>Opérations</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for s in sondages %}
+    <tr>
+      <td>{{ s.id }}</td>
+      <td>{{ s.account }}</td>
+      <td>{{ s.avis }}</td>
+      <td>{{ s.created_at|date:"d M, Y à H:i" }}</td>
+      <td>
+        <a href="{% url 'sondage_edit' pk=s.id %}"
+           class="btn btn-sm btn-success">Modifier</a>
+         <a href="{% url 'sondage_delete' pk=s.id %}"
+            class="btn btn-sm btn-danger">Supprimer</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
