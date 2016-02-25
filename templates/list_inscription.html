@@ -1,0 +1,41 @@
+{% extends '_layouts/base.html' %}
+
+{% block content %}
+
+<h1>Inscriptions</h1>
+
+<a href="{% url 'accounts.views.inscription_add' %}"
+   class="btn btn-primary btn-sm">Nouvelle inscription</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Prenom</th>
+      <th>Nom</th>
+      <th>Fonction</th>
+      <th>Type Compte</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for i in inscriptions %}
+    <tr>
+      <td>{{ i.id }}</td>
+      <td>{{ i.user.first_name }}</td>
+      <td>{{ i.user.last_name }}</td>
+      <td>{{ i.fonction }}</td>
+      <td>{{ i.get_account_type_display }}</td>
+      <td>
+        <a href="{% url 'inscription_edit' pk=i.id %}"
+           class="btn btn-sm btn-success">Modifier</a>
+         <a href="{% url 'inscription_delete' pk=i.id %}"
+            class="btn btn-sm btn-danger">Supprimer</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

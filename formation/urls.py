@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+
 from django.contrib import admin
 
 from . import views
@@ -23,5 +24,7 @@ urlpatterns = [
     url(r'^formations/(?P<nom>\w+)/', views.formation),
     url(r'^formations/', views.formation),
     url(r'^sondages/', include('sondage.urls')),
-    url(r'^', 'sondage.views.sondage_list')
+    url(r'^accounts/', include('accounts.urls')),
+    url(r'^', 'sondage.views.sondage_list'),
+
 ]
